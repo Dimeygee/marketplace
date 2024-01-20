@@ -1,0 +1,30 @@
+
+
+.input_container{
+
+    width: 100%;
+
+
+    @include index.flex($direction:column, $gap:22px);
+    
+    & > *{
+        width: 100%;
+    }
+
+    label{
+        font-family: var(--font-poppins);
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    input, select{
+        border-radius: 10px;
+        border: 1px solid #9F9F9F;
+        background: #FFF;
+        width: 100%;
+        min-height: 75px;
+        padding: 26px 30px;
+        outline: none;
+    }
+
+}

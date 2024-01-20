@@ -1,0 +1,211 @@
+
+
+
+
+.shoppingcartModal{
+    background-color:rgba(0, 0, 0, 0.20) ;
+    @include index.flex($justify:flex-end);
+    z-index:20;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+
+    .shopiingcart{
+        
+        position: relative;
+        @include index.media{
+            width: 100%;
+            height: 100%;
+        }
+
+        .cart_box{
+            
+            width: 417px;
+            max-width: 100%;
+            background-color: white;
+            min-height: 746px;
+
+            @include index.media{
+                width: 100%;
+                height: 100%;
+            }
+
+            .divider_box{
+
+                padding:0px 30px;
+                
+                .divider{
+                    background-color: #D9D9D9;
+                    height: 1px;
+                }
+
+            }
+
+            .cart_header{
+                padding: 26px 40px 26px 30px;
+                @include index.flex($justify:space-between,$alignment:center);
+
+
+                .cart_icon{
+                    @include index.flex($alignment:center);
+                    cursor: pointer;
+                }
+
+                h4{
+                    margin-right: 42px;
+                    font-size: 24px;
+                    font-weight: 600;
+                    font-family: var(--font-poppins);
+                }
+            }
+
+            .cartItem_box{
+                margin-top: 42px;
+                @include index.flex($direction:column,$gap:10px);
+
+                .cart_item{
+                    padding: 0px 40px 0px 30px;
+                    @include index.flex($alignment:center, $gap:20px, $justify:flex-start);
+                    width: 100%;
+
+                    .item_image_box{
+                        width: 105px;
+                        height: 105px;
+                        border-radius: 10px;
+                        background: #D9D9D9;
+                        position: relative;
+                    }
+
+                    .item_box_inner{
+
+                        @include index.flex($alignment:center, $justify:space-between);
+                        flex-grow:1;
+
+                        .item_name_box{
+                            @include index.flex($direction:column, $gap:8px);
+    
+                            h5{
+                                color: #000;
+                                font-family: var(--font-poppins);
+                                font-size: 16px;
+                                font-style: normal;
+                                font-weight: 400;
+                                line-height: normal;
+                            }
+    
+                            .item_count_price{
+    
+                                @include index.flex($gap:15px, $alignment:center);
+    
+                                .quantity{
+                                    color: #000;
+                                    font-family: var(--font-poppins);
+                                    font-size: 16px;
+                                    font-weight: 300;
+                                }
+    
+                                .x{
+                                    color: #000;
+                                    font-family: var(--font-poppins);
+                                    font-size: 12px;
+                                    font-style: normal;
+                                    font-weight: 300;
+                                    line-height: normal;
+                                }
+    
+                                .amount{
+                                    color: #B88E2F;
+                                    font-family: var(--font-poppins);
+                                    font-size: 12px;
+                                    font-weight: 500;
+                                }
+                            }
+                        }
+                    }
+
+                    
+                }
+            }
+        }
+
+        .subtotal_container{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+
+            .subtotal_total{
+
+                padding:0px 30px;
+                @include index.flex();
+
+                & > div{
+                    flex-grow: 1;
+                }
+
+                .subtotal_total_total{
+                    color: #000;
+                    font-family: var(--font-poppins);
+                    font-size: 16px;
+                    font-weight: 400;
+                }
+
+                .subtotal_total_amount{
+                    color: #B88E2F;
+                    font-family:var(--font-poppins) ;
+                    font-size: 16px;
+                    font-weight: 600;
+
+                    @include index.media{
+                        text-align: right;
+                    };
+                }
+            }
+
+            .divider{
+                margin-top: 23px;
+                border: 1px solid #D9D9D9;
+            }
+
+            .checkout_cart_box{
+                padding: 26px 30px;
+                @include index.flex($gap:28px,$justify:flex-start);
+                @include index.media{
+                    @include index.flex($gap:28px,$justify:space-between);
+                }
+
+                a{
+
+                    text-decoration: none;
+                    @include index.media{
+                        flex-grow: 1;
+                    }
+                    button {
+                        width: 131px;
+                        height: 31px;
+                        border:1px solid black;
+                        outline: none;
+                        border: none;
+                        border: 1px solid black;
+                        border-radius: 50px;
+                        line-height: 31px;
+                        font-size: 12px;
+                        font-family: var(--font-poppins);
+                        background: white;
+                        @include index.media{
+                            width: 100%;
+                        }
+                    }
+                
+                }
+            }
+
+        }
+    }
+
+}
+
+.closesolid{
+    cursor: pointer;
+}

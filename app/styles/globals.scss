@@ -1,0 +1,375 @@
+
+@use "index.scss";
+@import '../components/section/filter/filter.scss';
+@import '../components/section/items/items.scss';
+@import "../components//views/shoppingcart/shoppingcart.scss";
+@import '../cart/cart.scss';
+@import '../checkout/checkout.scss';
+@import '../components/checkout/input.scss';
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: var(--font-poppins);
+}
+
+.loading{
+    height: 50vh;
+    @include index.flex($alignment:center,$justify:center);
+}
+
+.navbar{
+    height:100px;
+    @include index.container;
+    @include index.flex($alignment:center);
+    @include index.media{
+        height: 64px;
+    }
+
+    div:nth-child(1){
+        @include index.media{
+            display: none;
+        }
+    }
+
+    .hamburgermenu{
+        display: none;
+        @include index.media{
+            @include index.flex($alignment:center);
+        }
+       
+    }
+
+    .links_container.desktop{
+        @include index.media{
+            display: none;
+        }
+    }
+
+    .links_container, .links_container {
+
+        & > span{
+           display: none;
+           @include index.media{
+                display: block;
+           }
+        }
+
+        @include index.media{
+            position: fixed;
+            z-index: 30;
+            background-color: white;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            padding: 24px;
+        }
+    }
+
+    div {
+
+
+        &.icons_container{
+            @include index.flex($alignment:center,$gap:45px);
+
+            @include index.media{
+                @include index.flex($gap:20px);
+            }
+
+            div{
+                @include index.flex($alignment:center);
+
+            }
+
+            .data-items{
+                @include index.flex($alignment:center);
+                position: relative;
+
+                &::before{
+                    content: attr(data-items);
+                    position: absolute;
+                    border-radius: 100%;
+                    width: 20px;
+                    height: 20px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    top: -10px;
+                    right: -10px;
+                    background-color: black;
+                    color: white;
+                }
+            }
+        }
+        
+        ul{
+            @include index.flex($alignment:center,$gap:75px);
+
+            @include index.media{
+                @include index.flex($direction:column);
+            }
+    
+            li{
+                list-style: none;
+                @include index.media{
+                    display:block;
+                    width: 100%;
+                }
+    
+                a{
+                    color:index.$black;
+                    text-decoration :none;
+                    font-size:16px;
+                    font-family: var(--font-poppins);
+                    font-weight: 500;
+                    @include index.media{
+                        padding: 16px 0;
+                        display:block;
+                    }
+                }
+
+                a:not(.contact){
+                    @include index.media{
+                        border-bottom: 1px solid #D7D7D7;
+                    }
+                }
+
+                
+            }
+        }
+
+        
+    }
+}
+
+header {
+    position: relative;
+    width: 100%;
+    height: 316px;
+
+    & > img {
+        @include index.media{
+          position: absolute;
+          object-fit: fill;
+        }
+    }
+
+    & > div{
+        position: absolute;
+        z-index:10;
+        width: 100%;
+        height: 100%;
+        @include index.flex($direction: column,$alignment:center, $justify: center);
+        top: 0;
+
+        .logo_box{
+            position: relative;
+            width:77px;
+            height: 77px;
+
+            @include index.media{
+                width: 56px;
+                height: 56px;
+            }
+        }
+
+        .link_box{
+            @include index.flex($alignment:center,$gap:6px);
+            font-family: var(--font-poppins);
+            font-size: 16px;
+            @include index.media{
+                font-size: 14px;
+            }
+
+            .prev_page{
+                font-weight: 500;
+            }
+
+            .cur_page{
+                font-weight: 300;
+            }
+        }
+
+        p{
+            font-family: var(--font-poppins);
+            font-size: 48px;
+            font-weight:500;
+            margin-top: -15px;
+            @include index.media{
+                font-size: 32px;
+            }
+        }
+    }
+}
+
+.adverts_box{
+
+    min-height: 300px;
+    @include index.flex($alignment:center);
+    background-color: index.$filterbg;
+    @include index.media{
+        padding: 40px 0
+    }
+
+    div{
+        @include index.container;
+        @include index.flex($justify:space-between, $gap:48px);
+        @include index.media{
+            @include index.flex($direction:column, $gap:48px);
+        };
+
+        div{
+            @include index.flex($direction:column);
+
+            h4{
+                color: #000;
+                font-family: var(--font-poppins);
+                font-size: 32px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                @include index.media{
+                    font-size: 24px;
+                }
+            }
+    
+            p{
+                color: index.$gray;
+                font-family:  var(--font-poppins);
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                @include index.media{
+                    font-size: 16px;
+                }
+            }
+        }
+
+        
+    }
+}
+
+footer {
+    background-color: white;
+
+    & > div{
+
+
+        @include index.flex($direction:column);
+        @include index.container;
+        
+
+        .footer_lower{
+            padding: 38px 0;
+            width: 100%;
+            @include index.media{
+                text-align: center;
+                font-size:16px ;
+            };
+        }
+
+        .footer_upper{
+            padding-top: 98px;
+            padding-bottom: 48px;
+            width: 100%;
+            @include index.flex($alignment:center);
+            @include index.media{
+                @include index.flex($direction:column);
+            };
+            
+
+            .footer_upper_left{
+                margin-right: 138px;
+                color: index.$gray;
+                font-family: var(--font-poppins);
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+            }
+
+            .footer_upper_right{
+
+                flex-grow: 1;
+                flex-wrap: wrap;
+                @include index.flex($justify:space-between);
+                @include index.media{
+                    margin-top: 40px
+                };
+
+                .Link_container{
+
+                    ul{
+                        @include index.flex($direction:column,$gap:45px);
+                    }
+
+                    &.newsletter{
+                        margin-top: 40px;
+                    }
+
+                    a{
+                        color: black;
+                        font-family: var(--font-poppins);
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: normal;
+                        text-decoration: none;
+                    }
+
+                    .header_link {
+                        @include index.flex($gap:45px);
+                        color: index.$gray;
+                        margin-bottom: 55px;
+                    }
+                   
+                    form {
+
+                        .input_container{
+                            @include index.flex($gap:11px, $alignment:center);
+
+                            input {
+                                flex-grow: 1;
+                                border: none;
+                                border-bottom: 1px solid black;
+                                outline: none;
+                                padding:2px;
+                                flex-basis: 173px;
+                                height: 0px !important;
+                            }
+
+                            button{
+                                color: #000;
+                                font-family: var(--font-poppins);
+                                font-size: 14px;
+                                font-style: normal;
+                                font-weight: 500;
+                                line-height: normal;
+                                border: none;
+                                border-bottom: 1px solid black;
+                                min-width: 75px;
+                                background-color: transparent;
+                            }
+
+                        }
+
+                    }
+                    
+                }
+            }
+        }
+
+    }
+}
+
+
+
+
+
+
+
